@@ -1,0 +1,9 @@
+pomysły: A, B, C
+U1 -> A
+U2 -> B
+U3 -> A
+U1 -> A
+U1 -> B
+? przed wycofaniem
+U3 wycofuje A
+? po wycofaniu

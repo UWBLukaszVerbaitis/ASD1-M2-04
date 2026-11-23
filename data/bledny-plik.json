@@ -1,0 +1,24 @@
+{
+  "format": "asd1-m2-04-skrzynka-pomyslow",
+  "version": 1,
+  "ideas": [
+    {
+      "id": "A",
+      "title": "Pomysł A",
+      "category": "inne",
+      "status": "nowy"
+    },
+    {
+      "id": "a-2",
+      "title": "",
+      "category": "inne",
+      "status": "gotowy"
+    }
+  ],
+  "votes": [
+    {
+      "participant": "U1",
+      "ideaId": "X"
+    }
+  ]
+}

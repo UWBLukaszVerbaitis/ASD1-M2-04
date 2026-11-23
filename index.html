@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skrzynka pomysłów studenckich — ASD1-M2-04</title>
+<link rel="icon" href="assets/uwb-filia-wilno-logo.jpg">
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<div class="topline" aria-hidden="true"></div>
+<div class="utility"><div class="wrap">Filia Uniwersytetu w Białymstoku w Wilnie · Kierunek: Informatyka <span class="sep">|</span> Algorytmy i struktury danych I · Mini-projekt M2</div></div>
+
+<header class="site">
+  <div class="wrap head">
+    <img class="logo" src="assets/uwb-filia-wilno-logo.jpg" alt="Filia Uniwersytetu w Białymstoku w Wilnie" width="255" height="85">
+    <div class="brand">
+      <h1>Skrzynka pomysłów studenckich</h1>
+      <p>ASD1-M2-04 · Inicjatywy — zbieranie pomysłów na życie Filii i ranking poparcia</p>
+    </div>
+    <form class="who" id="whoForm" autocomplete="off" onsubmit="return false">
+      <label>Głosujesz jako <input id="me" value="U1" size="8" maxlength="20" aria-describedby="meHelp"></label>
+      <span id="meHelp" class="muted">ID uczestnika (demo)</span>
+      <label class="switch"><input type="checkbox" id="operator"> Tryb operatora</label>
+    </form>
+  </div>
+  <nav class="tabs wrap" role="tablist" aria-label="Sekcje aplikacji">
+    <button role="tab" id="t-ideas" aria-controls="p-ideas" aria-selected="true">Pomysły</button>
+    <button role="tab" id="t-rank" aria-controls="p-rank" aria-selected="false">Ranking i podsumowanie</button>
+    <button role="tab" id="t-control" aria-controls="p-control" aria-selected="false">Przykład kontrolny</button>
+    <button role="tab" id="t-algo" aria-controls="p-algo" aria-selected="false">Algorytmy i porównania</button>
+    <button role="tab" id="t-data" aria-controls="p-data" aria-selected="false">Dane JSON</button>
+    <button role="tab" id="t-tests" aria-controls="p-tests" aria-selected="false">Testy</button>
+  </nav>
+</header>
+
+<div class="wrap"><div id="msg" class="msg" role="status" aria-live="polite"></div></div>
+
+<main class="wrap">
+  <!-- ================= POMYSŁY ================= -->
+  <section id="p-ideas" role="tabpanel" aria-labelledby="t-ideas">
+    <div class="stats" id="stats"></div>
+    <div class="grid2">
+      <div>
+        <div class="card">
+          <div class="filters">
+            <label>Kategoria <select id="fCat"></select></label>
+            <label>Status <select id="fStatus"></select></label>
+            <label>Kolejność <select id="fOrder"><option value="rank">rankingowa</option><option value="added">dodania</option></select></label>
+            <span class="muted" id="fInfo"></span>
+          </div>
+        </div>
+        <ul class="ideas" id="ideaList"></ul>
+        <div class="more" id="moreBox"></div>
+      </div>
+      <aside>
+        <div class="card" id="detail" tabindex="-1"></div>
+        <form class="card form" id="voteForm" autocomplete="off">
+          <h2>Głos ręcznie</h2>
+          <div class="row2">
+            <label>Uczestnik <input id="vP" required maxlength="20" placeholder="np. U2"></label>
+            <label>Pomysł <input id="vI" required maxlength="20" placeholder="np. A"></label>
+          </div>
+          <div class="btns"><button type="submit" class="primary">Poprzyj</button><button type="button" id="vWithdraw">Wycofaj poparcie</button></div>
+        </form>
+        <form class="card form" id="ideaForm" autocomplete="off">
+          <h2 id="formTitle">Dodaj pomysł</h2>
+          <label>ID <span class="muted">(A–Z, cyfry, łącznik; niezmienne)</span><input id="iId" maxlength="20" required></label>
+          <label>Tytuł <input id="iTitle" maxlength="120" required></label>
+          <label>Kategoria <input id="iCat" list="catList" maxlength="40" required></label>
+          <datalist id="catList"></datalist>
+          <label>Opis <textarea id="iDesc" rows="4" maxlength="2000"></textarea></label>
+          <label class="opOnly">Status <select id="iStatus"></select></label>
+          <div class="btns"><button type="submit" class="primary" id="iSave">Dodaj</button><button type="button" id="iCancel" hidden>Anuluj edycję</button></div>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= RANKING ================= -->
+  <section id="p-rank" role="tabpanel" aria-labelledby="t-rank" hidden>
+    <div class="card">
+      <h2>Ranking poparcia <span class="stamp" id="rankStamp"></span></h2>
+      <p class="rule"><b>Reguła:</b> liczba głosów malejąco, przy remisie ID rosnąco (porównanie kodów znaków: cyfry &lt; łącznik &lt; litery). Miejsca są kolejne — remis nie daje miejsca ex aequo, ale jest oznaczony.</p>
+      <div class="tablewrap"><table class="t" id="rankTable"></table></div>
+      <div class="more" id="rankMore"></div>
+    </div>
+    <div class="grid2 even">
+      <div class="card"><h2>Pomysły w kategoriach</h2><div id="catSummary"></div></div>
+      <div class="card"><h2>Głosy i głosujący</h2><div id="voterSummary"></div></div>
+    </div>
+  </section>
+
+  <!-- ================= PRZYKŁAD KONTROLNY ================= -->
+  <section id="p-control" role="tabpanel" aria-labelledby="t-control" hidden>
+    <div class="grid2 wideLeft">
+      <div class="card">
+        <h2>Dziennik działań i wyniki pośrednie</h2>
+        <p class="muted">Każdy wiersz pokazuje ranking przeliczony <b>po</b> danym działaniu. Wiersze z „?” to punkty kontrolne.</p>
+        <div class="tablewrap"><table class="t" id="logTable"></table></div>
+        <div id="expectBox"></div>
+      </div>
+      <form class="card form" id="scriptForm">
+        <h2>Scenariusz (można edytować)</h2>
+        <label for="script">Działania <span class="muted">— „U1 -&gt; A” głos, „U3 wycofuje A” wycofanie, „? nazwa” punkt kontrolny</span></label>
+        <textarea id="script" rows="12" spellcheck="false"></textarea>
+        <div class="btns"><button type="submit" class="primary">Odtwórz i wczytaj wynik</button><button type="button" id="scriptReset">Przywróć przykład z karty</button></div>
+        <p class="muted">Odtworzenie zastępuje bieżące dane (po potwierdzeniu). Wynik końcowy można dalej zmieniać w zakładce „Pomysły”.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= ALGORYTMY ================= -->
+  <section id="p-algo" role="tabpanel" aria-labelledby="t-algo" hidden>
+    <div class="grid2 even">
+      <div class="card">
+        <h2>Wyszukiwanie liniowe pary (uczestnik, pomysł)</h2>
+<pre class="code">findVote(votes, p, i):          // PIERWSZE dopasowanie
+  dla k = 0 … len(votes)−1:
+    sprawdzone++ ; porównania++
+    jeśli votes[k].participant ≠ p: dalej
+    porównania++
+    jeśli votes[k].ideaId = i: zwróć k
+  zwróć −1                       // koszt O(m)</pre>
+        <p class="muted">Suma głosów pomysłu: <code>votesForIdea</code> przegląda całą listę i zbiera <b>wszystkie</b> dopasowania (m rekordów na pomysł → O(n·m) dla rankingu).</p>
+      </div>
+      <div class="card">
+        <h2>Sortowanie przez wstawianie (ranking)</h2>
+<pre class="code">insertionSort(a, cmp):
+  dla i = 1 … n−1:
+    key = a[i] ; j = i−1
+    dopóki j ≥ 0:
+      porównania++
+      jeśli cmp(a[j], key) &gt; 0:     // a[j] ma być ZA key
+        a[j+1] = a[j] ; j−−         // przesunięcie
+      inaczej: przerwij
+    a[j+1] = key                     // O(n) … O(n²)
+cmp(a,b): głosy malejąco, potem ID rosnąco</pre>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Tabela „przed → decyzja → po” <span class="muted" id="traceNote"></span></h2>
+      <div class="tablewrap"><table class="t small" id="traceTable"></table></div>
+    </div>
+    <div class="card">
+      <h2>Liczniki ostatniego przeliczenia</h2>
+      <div id="counterBox"></div>
+    </div>
+    <div class="grid2 even">
+      <div class="card">
+        <h2>Sortowanie: porównanie z wzorcem</h2>
+        <p class="muted">Dane powtarzalne (ziarno 42). Wzorzec: wbudowane <code>Array.prototype.sort</code> z tym samym warunkiem — używane tylko do kontroli.</p>
+        <button id="benchSortBtn" class="primary">Uruchom dla 10, 100 i 1000 rekordów</button>
+        <div class="tablewrap"><table class="t small" id="benchSortTable"></table></div>
+      </div>
+      <div class="card">
+        <h2>Wyszukiwanie: początek, koniec, brak</h2>
+        <p class="muted">Szukamy pierwszego dopasowania pary. Liczniki zwiększane wewnątrz tej samej pętli.</p>
+        <button id="benchSearchBtn" class="primary">Uruchom dla 10, 100 i 1000 głosów</button>
+        <div class="tablewrap"><table class="t small" id="benchSearchTable"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DANE ================= -->
+  <section id="p-data" role="tabpanel" aria-labelledby="t-data" hidden>
+    <div class="grid2 even">
+      <div class="card">
+        <h2>Scenariusze</h2>
+        <div class="btns col" id="scenarioBtns"></div>
+        <p class="muted">Te same zestawy są w katalogu <code>data/</code> jako pliki JSON do importu.</p>
+      </div>
+      <div class="card">
+        <h2>Eksport i import JSON</h2>
+        <p>Format <code id="fmtName"></code>, wersja <b id="fmtVer"></b>.</p>
+        <div class="btns"><button id="exportBtn" class="primary">Eksportuj do pliku</button>
+          <label class="filebtn">Importuj plik… <input type="file" id="importFile" accept=".json,application/json"></label></div>
+        <div id="importBox"></div>
+        <h3>Zapis lokalny (dodatek)</h3>
+        <p class="muted" id="localInfo"></p>
+        <button id="clearLocal">Wyczyść zapis w przeglądarce</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTY ================= -->
+  <section id="p-tests" role="tabpanel" aria-labelledby="t-tests" hidden>
+    <div class="card">
+      <h2>Testy automatyczne</h2>
+      <p class="muted">Ten sam zestaw uruchamia polecenie <code>node tests/run.js</code>.</p>
+      <button id="runTests" class="primary">Uruchom testy</button> <b id="testSummary"></b>
+      <div class="tablewrap"><table class="t small" id="testTable"></table></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site"><div class="wrap">Łukasz Verbaitis · ASD1-M2-04 · Algorytmy i struktury danych I · 2026/2027 — dane demonstracyjne, bez logowania</div></footer>
+
+<dialog id="dlg">
+  <form method="dialog">
+    <h2 id="dlgTitle">Potwierdź</h2>
+    <p id="dlgText"></p>
+    <div class="btns"><button value="cancel" id="dlgCancel">Anuluj</button><button value="ok" class="danger" id="dlgOk">Potwierdź</button></div>
+  </form>
+</dialog>
+
+<script src="src/core.js"></script>
+<script src="src/tests.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>

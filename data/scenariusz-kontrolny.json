@@ -1,0 +1,65 @@
+{
+  "format": "asd1-m2-04-skrzynka-pomyslow",
+  "version": 1,
+  "ideas": [
+    {
+      "id": "A",
+      "title": "Dłuższe godziny otwarcia czytelni",
+      "description": "Czytelnia otwarta do 20:00 w sesji.",
+      "category": "infrastruktura",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "title": "Stojaki na rowery przy wejściu",
+      "description": "Zadaszone stojaki na 10 rowerów.",
+      "category": "infrastruktura",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "title": "Wieczór gier planszowych",
+      "description": "Raz w miesiącu w auli, gry od samorządu.",
+      "category": "wydarzenia",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    }
+  ],
+  "votes": [
+    {
+      "participant": "U1",
+      "ideaId": "A"
+    },
+    {
+      "participant": "U2",
+      "ideaId": "B"
+    },
+    {
+      "participant": "U1",
+      "ideaId": "B"
+    }
+  ]
+}

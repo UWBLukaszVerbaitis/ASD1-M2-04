@@ -1,0 +1,192 @@
+{
+  "format": "asd1-m2-04-skrzynka-pomyslow",
+  "version": 1,
+  "ideas": [
+    {
+      "id": "D-01",
+      "title": "Nagrania wykładów z ASD",
+      "description": "Udostępnianie nagrań wykładów na platformie przez 2 tygodnie.",
+      "category": "dydaktyka",
+      "status": "w analizie",
+      "history": [
+        {
+          "from": null,
+          "to": "w analizie",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "D-02",
+      "title": "Konsultacje online w środy",
+      "description": "Dodatkowy termin konsultacji przez Teams.",
+      "category": "dydaktyka",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "I-01",
+      "title": "Gniazdka w sali 105",
+      "description": "Listwy zasilające przy ławkach na laptopy.",
+      "category": "infrastruktura",
+      "status": "przyjęty",
+      "history": [
+        {
+          "from": null,
+          "to": "przyjęty",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "I-02",
+      "title": "Automat z kawą na parterze",
+      "description": "Automat z napojami ciepłymi przy szatni.",
+      "category": "infrastruktura",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "I-03",
+      "title": "Szybsze Wi-Fi w auli",
+      "description": "Drugi punkt dostępowy w auli.",
+      "category": "infrastruktura",
+      "status": "w analizie",
+      "history": [
+        {
+          "from": null,
+          "to": "w analizie",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "W-01",
+      "title": "Dzień otwarty Filii",
+      "description": "Studenci pokazują projekty kandydatom.",
+      "category": "wydarzenia",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "W-02",
+      "title": "Turniej szachowy",
+      "description": "Turniej w formule szwajcarskiej, 5 rund.",
+      "category": "wydarzenia",
+      "status": "odrzucony",
+      "history": [
+        {
+          "from": null,
+          "to": "odrzucony",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "S-01",
+      "title": "Skrzynka anonimowych uwag",
+      "description": "Formularz uwag przekazywany samorządowi co miesiąc.",
+      "category": "samorząd",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    }
+  ],
+  "votes": [
+    {
+      "participant": "U1",
+      "ideaId": "I-01"
+    },
+    {
+      "participant": "U2",
+      "ideaId": "I-01"
+    },
+    {
+      "participant": "U3",
+      "ideaId": "I-01"
+    },
+    {
+      "participant": "U4",
+      "ideaId": "I-01"
+    },
+    {
+      "participant": "U1",
+      "ideaId": "D-01"
+    },
+    {
+      "participant": "U2",
+      "ideaId": "D-01"
+    },
+    {
+      "participant": "U5",
+      "ideaId": "D-01"
+    },
+    {
+      "participant": "U6",
+      "ideaId": "D-01"
+    },
+    {
+      "participant": "U3",
+      "ideaId": "I-03"
+    },
+    {
+      "participant": "U4",
+      "ideaId": "I-03"
+    },
+    {
+      "participant": "U5",
+      "ideaId": "I-03"
+    },
+    {
+      "participant": "U1",
+      "ideaId": "W-01"
+    },
+    {
+      "participant": "U6",
+      "ideaId": "W-01"
+    },
+    {
+      "participant": "U2",
+      "ideaId": "S-01"
+    },
+    {
+      "participant": "U6",
+      "ideaId": "I-02"
+    },
+    {
+      "participant": "U5",
+      "ideaId": "D-02"
+    }
+  ]
+}

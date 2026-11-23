@@ -1,0 +1,138 @@
+{
+  "format": "asd1-m2-04-skrzynka-pomyslow",
+  "version": 1,
+  "ideas": [
+    {
+      "id": "Z",
+      "title": "Jednoznakowe ID",
+      "description": "ID o długości 1 znaku.",
+      "category": "inne",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "ABCDEFGHIJ-123456789",
+      "title": "ID o maksymalnej długości 20 znaków",
+      "description": "Łącznik i cyfry w ID.",
+      "category": "inne",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "0",
+      "title": "ID złożone z cyfry",
+      "description": "",
+      "category": "inne",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "HTML-1",
+      "title": "<b>Pogrubienie?</b> — tytuł z tagami",
+      "description": "<script>alert(\"x\")</script> ten opis ma być widoczny jako zwykły tekst.",
+      "category": "inne",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "BEZ-GLOSOW",
+      "title": "Pomysł bez głosów",
+      "description": "Suma 0 — ostatnie miejsce.",
+      "category": "samorząd",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    },
+    {
+      "id": "DLUGI-TYTUL",
+      "title": "Tytuł o maksymalnej dozwolonej długości — sto dwadzieścia znaków; Tytuł o maksymalnej dozwolonej długości — sto dwadzieś",
+      "description": "Tytuł ma dokładnie 120 znaków (granica walidacji).",
+      "category": "dydaktyka",
+      "status": "nowy",
+      "history": [
+        {
+          "from": null,
+          "to": "nowy",
+          "at": null,
+          "note": "utworzenie"
+        }
+      ]
+    }
+  ],
+  "votes": [
+    {
+      "participant": "U-1",
+      "ideaId": "Z"
+    },
+    {
+      "participant": "U-1",
+      "ideaId": "ABCDEFGHIJ-123456789"
+    },
+    {
+      "participant": "U-1",
+      "ideaId": "0"
+    },
+    {
+      "participant": "U-1",
+      "ideaId": "HTML-1"
+    },
+    {
+      "participant": "U-1",
+      "ideaId": "DLUGI-TYTUL"
+    },
+    {
+      "participant": "U-2",
+      "ideaId": "Z"
+    },
+    {
+      "participant": "U-2",
+      "ideaId": "ABCDEFGHIJ-123456789"
+    },
+    {
+      "participant": "U-2",
+      "ideaId": "0"
+    },
+    {
+      "participant": "U-2",
+      "ideaId": "HTML-1"
+    },
+    {
+      "participant": "U-2",
+      "ideaId": "DLUGI-TYTUL"
+    }
+  ]
+}
