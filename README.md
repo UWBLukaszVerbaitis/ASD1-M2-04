@@ -107,6 +107,6 @@ npm run docs     # slajdy i dokumentacja z rzeczywistych wyników + PDF
 * MDN Web Docs (`<dialog>`, `textContent`, File API, `localStorage`); GitHub Docs.
 * Logo i kolorystyka: materiały Filii Uniwersytetu w Białymstoku w Wilnie.
 
-Szkic kodu, testów i dokumentów przygotowano z pomocą asystenta AI (Claude, Anthropic). Weryfikacja: 17 testów
+Szkic kodu, testów i dokumentów przygotowano z pomocą agenta AI (asystenta programistycznego). Weryfikacja: 17 testów
 automatycznych, 14 sprawdzeń interfejsu w przeglądarce, ręczne przeliczenie przykładu kontrolnego i tabeli
 „przed → decyzja → po”, przegląd zrzutów ekranu.
