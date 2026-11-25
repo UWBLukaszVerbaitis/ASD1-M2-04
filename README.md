@@ -13,7 +13,9 @@ z których powstała suma.
 ## Uruchomienie aplikacji
 
 Czysty HTML + CSS + JavaScript — bez serwera, instalacji, kont i bibliotek.
-Wystarczy otworzyć `index.html` w przeglądarce (Chrome, Firefox, Edge).
+**Wersja online (GitHub Pages):** https://uwblukaszverbaitis.github.io/ASD1-M2-04/
+
+Lokalnie wystarczy otworzyć `index.html` w przeglądarce (Chrome, Firefox, Edge).
 
 ## Uruchomienie testów
 
